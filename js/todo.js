@@ -101,6 +101,32 @@ function addTodo(id, todoText, completed) {
 
 }
 
+//logout
+$('#logout_button').on('click', function(){
+
+  $.ajax({
+    // url: 'http://localhost:3000/logout',
+    url: 'https://examenfinal-web.herokuapp.com/logout',
+    headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+    },
+    method: 'POST',
+    data: 'json',
+    dataType: 'json',
+    success: function(data){
+      alert("Logout");
+      window.location = './index.html'
+    },
+    error: function(error_msg) {
+      // alert("error");
+      window.location = './index.html'
+    }
+  });
+
+});
+
+
 // let todoList = $('#todo-list')
 // todoList.click(function() {
 //   let elements = $('input')
